@@ -8,6 +8,7 @@ export const homeStyles = () => ({
         boxSizing: 'border-box',
         minHeight: '100vh',
         width: '100%',
+        color: 'white'
     }
   });
   

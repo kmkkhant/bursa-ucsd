@@ -14,6 +14,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import bursalogo from "./Images/bursalogo.jpg";
+import {Link} from "react-router-dom"
 
 interface Props {
   /**
@@ -24,7 +25,7 @@ interface Props {
 }
 
 const drawerWidth = 240;
-const navItems = ["About", "Events", "Archives", "Contact"];
+const navItems = ["About", "Culture", "Events", "Archives", "Contact"];
 
 export default function Navbar(props: Props) {
   const { window } = props;
@@ -40,14 +41,19 @@ export default function Navbar(props: Props) {
       sx={{ textAlign: "center"}}
     >
       <Typography variant="h6" sx={{ my: 2 }}>
-        <h1>BURSA</h1>
+        <Link to="/">
+          {/* <h1>BURSA</h1> */}
+          <img style={{ width: '80%' }} src={bursalogo}></img>
+        </Link>
       </Typography>
       <Divider />
       <List>
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
             <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
+              <Link to={`/${item.toLowerCase()}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <ListItemText primary={item} />
+              </Link>
             </ListItemButton>
           </ListItem>
         ))}
@@ -72,20 +78,17 @@ export default function Navbar(props: Props) {
           >
             <MenuIcon />
           </IconButton>
-          {/* <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-          >
-             MUI
-          </Typography> */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
-            <img style={{ maxHeight: "50px" }} src={bursalogo}></img>
+            <Link to="/">
+              <img style={{ maxHeight: "50px" }} src={bursalogo}></img>
+            </Link>
           </Box>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
               <Button key={item} sx={{ color: "#fff" }}>
-                {item}
+                  <Link to={`/${item.toLowerCase()}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                <ListItemText primary={item} />
+              </Link>
               </Button>
             ))}
           </Box>
@@ -98,7 +101,7 @@ export default function Navbar(props: Props) {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true, 
           }}
           sx={{
             display: { xs: "block", sm: "none" },

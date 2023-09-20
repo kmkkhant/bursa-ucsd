@@ -11,10 +11,11 @@ const Home = () => {
   return (
     <Box sx={styles.root} style={{ overflow: "hidden" }}>
       <Box
-        style={{
+        sx={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          marginX: {xs: '0%', sm: "10%"}
         }}
       >
         <Grid
@@ -24,12 +25,12 @@ const Home = () => {
           spacing={1}
           marginTop="10%"
         >
-          <Grid item md={5}>
+          <Grid item xs={12} sm={12} md={7} sx={{marginX: {xs: '8%', sm: "0%"}}}>
             <Box>
-              <Typography variant="h2" color="white" marginY="4%">
+              <Typography variant="h2" marginY="4%">
                 Mingalarpar
               </Typography>
-              <Typography variant="body1" color="white">
+              <Typography variant="body1">
                 At BURSA, we strive to promote and celebrate Burmese culture at
                 UC San Diego. Anyone is welcome to join us at our events!
               </Typography>
@@ -41,25 +42,13 @@ const Home = () => {
               </Button>
             </Box>
           </Grid>
-          <Grid item md={4}>
+          <Grid item xs={12} sm={12} md={5}>
             <Box>
-              <img src={mmcartoon} alt="cartoon" />
+              <img src={mmcartoon} alt="cartoon" style={{width: '100%'}}/>
             </Box>
           </Grid>
         </Grid>
       </Box>
-      <Typography variant="h2" color="white" marginY="4%" textAlign="center">
-        Upcoming Events
-      </Typography>
-      <Typography variant="h2" color="white" marginY="4%" textAlign="center">
-        Archives
-      </Typography>
-      <Typography variant="h2" color="white" marginY="4%" textAlign="center">
-        Meet the Team
-      </Typography>
-      <Typography variant="h2" color="white" marginY="4%" textAlign="center">
-        Contact Us
-      </Typography>
     </Box>
   );
 };
