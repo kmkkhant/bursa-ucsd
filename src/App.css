@@ -5,3 +5,19 @@
     overflow-x: hidden;
 }
 
+body {
+    background-color: #0B1432; /* Set the background color for the entire page */
+}
+
+.contact-form-container {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.contact-form-container form {
+    max-width: 500px; /* Or whatever maximum width you prefer */
+    width: 100%;
+}
